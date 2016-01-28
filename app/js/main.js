@@ -81,6 +81,11 @@ var _geomServiceUrl = null;
 
 var _tileClick = true;
 
+
+// Custom Legend - Capture viewport width
+var viewportWidth = window.innerWidth;
+
+
 /******************************************************
 ************************* init ************************
 *******************************************************/
@@ -519,6 +524,11 @@ function init() {
 			list.then(function(results){
 				if (_map.loaded ) {
 					organizeLayers(results);
+					
+					// Custom Legend - If screen width is above breakpoint, display legend button
+					if (viewportWidth > 767) {
+						$('#customLegendBtn').show();
+					}
 				}
 			});
 
@@ -2261,6 +2271,8 @@ function selectMobileTheme(index){
 		activateLayer(_contentLayers[index]);
 	$('#mobileTitlePage').css('display', 'none');
 	$('#map').css('height', '100%').css('height', '48%').css('height', '-=20px');
+	// Custom Legend - show Legend button on devices below breakpoint once map is visible
+	$('#customLegendBtn').show();
 	_map.resize();
 }
 
@@ -2380,3 +2392,9 @@ function prependURLHTTP(url)
 
 	return url;
 }
+
+
+// Custom Legend - ddd display/hide legend functionality to the legend button
+$('#customLegendBtn').click(function () {
+    $('#customLegend').toggle();
+});
