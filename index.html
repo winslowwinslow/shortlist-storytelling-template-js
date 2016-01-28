@@ -87,6 +87,8 @@
 		<link rel="stylesheet" type="text/css" href="lib/idangerous.swiper.css">
 		<link rel="stylesheet" type="text/css" href="app/css/style.css">
 		<link rel="stylesheet" type="text/css" href="app/css/responsive.css">
+		<!-- Add stylesheet for custom legend -->
+		<link rel="stylesheet" type="text/css" href="app/css/jquery.shortlist-legend.css">
 		<!--[if lt IE 9]>
 			<link rel="stylesheet" type="text/css" href="app/css/ie8-and-down.css" />
 		<![endif]-->
@@ -150,6 +152,22 @@
 			</div>
 
 			<div id="map" tabindex="-1" aria-label="This is a nice map that shows cool things.">
+				<!-- Custom Legend -->
+				<div id="customLegendBtn">
+					<h3>Legend</h3>
+				</div>
+				<div id="customLegend">
+					<ul>
+						<li><!-- [Name of Layer]--></li>
+						<li><img /><!-- Graphic representing layer --></li>
+					</ul>
+					<ul>
+						<li><!-- [Name of Layer]--></li>
+						<li><img /><!-- Graphic representing layer --></li>
+					</ul>
+					<!-- Use one unordered list per layer -->					
+				</div>
+				<!-- end Custom Legend -->
 				<div id="zoomToggle">
 					<div id="zoomIn">+</div>
 					<div id="zoomExtent">
