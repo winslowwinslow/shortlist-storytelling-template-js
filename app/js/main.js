@@ -586,7 +586,11 @@ function init() {
 					_map.removeLayer(_map.getLayer(result[1].features[0]._layer.id));
 				});
 			}
-			initMap(layers);
+			// initMap(layers);
+			// delay function to allow for slower loading layers
+			setTimeout(function() {
+    				initMap(layers);
+			}, 500);
 		}
 
 		if(overRideError){
