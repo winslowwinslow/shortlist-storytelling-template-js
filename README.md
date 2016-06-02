@@ -26,7 +26,7 @@ The static legend involves the following changes to the application:
       a. This element will contain the legend contents
 
 
-5.	Add legend elements within the `<div id="customLegend">` using `<ul><li>[Name of Layer]</li><li>[image representing layer]<img alt="" src="resources/images/legend/[name of image]"</li></ul>` structure.
+5.	Add legend elements within the `<div id="customLegend">` using `<ul><li>[Name of Layer]</li><li>[image representing layer]<img alt="" src="resources/images/legend/[name of image]" /></li></ul>` structure.
 
 
 6.	Created a folder named <strong>"images"</strong> within the <strong>"resources/images/"</strong> directory.
