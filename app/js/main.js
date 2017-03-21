@@ -301,6 +301,7 @@ function init() {
 				featServUrl.push(layer.url);
 				featServLayerIndex.push(index);
 			}
+
 			if(layer.graphics && layer.geometryType === 'esriGeometryPoint'){
 				if(layer.graphics.length < 1){
 					dojo.connect(layer, 'onUpdateEnd', function(){
@@ -532,7 +533,7 @@ function init() {
 				}
 			});
 
-        }
+        };
 
         function organizeLayers(results) {
         	if(_pointsInOneLayer){
@@ -684,10 +685,12 @@ function initMap(layers) {
 		if(!value.visibleAtMapScale && value.type == "Feature Layer" && value.url)
 			return;
 		if(value.id === 'labels'){
-			if(value.featureLayers[0].graphics[0].attributes.getValueCI && value.featureLayers[0].graphics[0].attributes.getValueCI(FIELDNAME_TAB))
-				_map.removeLayer(_map.getLayer(value.id));
-			else
-				return;
+			setTimeout(function(){
+				if(value.featureLayers[0].graphics[0].attributes.getValueCI && value.featureLayers[0].graphics[0].attributes.getValueCI(FIELDNAME_TAB))
+					_map.removeLayer(_map.getLayer(value.id));
+				else
+					return;
+			}, 950);
 		}
 		var graphicAtts;
 		var geomType;
@@ -713,17 +716,16 @@ function initMap(layers) {
 					if(_map.getLayer(n).id.split('_').length > 2){
 						mapLayerId = _map.getLayer(n).id.split('_').slice(0,-1).join('_');
 					}
-					else if(_map.getLayer(n).id.split('_').length == 2 && _map.getLayer(n).id.indexOf('csv') == -1 && !_map.getLayer(n).url){
+					else if(_map.getLayer(n).id.split('_').length == 2 && _map.getLayer(n).id.indexOf('csv') == -1){
 						mapLayerId = _map.getLayer(n).id.split('_').slice(0,-1)[0];
 					} else {
 						mapLayerId = _map.getLayer(n).id;
 					}
-					mapLayerId = _map.getLayer(n).id;
 					var match =  $.grep(_response.itemInfo.itemData.operationalLayers, function(v){
 						return v.id==mapLayerId;
 					});
 					if(match && match.length) {
-						graphicTitle = String(match[0].title);
+						graphicTitle = match[0].title;
 					}
 				}
 			}else{
@@ -820,7 +822,7 @@ function initMap(layers) {
 					if(_map.getLayer(n).id.split('_').length > 2){
 						mapLayerId = _map.getLayer(n).id.split('_').slice(0,-1).join('_');
 					}
-					else if(_map.getLayer(n).id.split('_').length == 2 && _map.getLayer(n).id.indexOf('csv') == -1 && !_map.getLayer(n).url){
+					else if(_map.getLayer(n).id.split('_').length == 2 && _map.getLayer(n).id.indexOf('csv') == -1){
 						mapLayerId = _map.getLayer(n).id.split('_').slice(0,-1)[0];
 					} else {
 						mapLayerId = _map.getLayer(n).id;
@@ -829,7 +831,7 @@ function initMap(layers) {
 						return v.id==mapLayerId;
 					});
 					if(match && match.length) {
-						title = String(match[0].title);
+						title = match[0].title;
 					}
 				}
 			}else{
@@ -2303,13 +2305,10 @@ function displayLocationPin(point)
 
 function shareFacebook()
 {
-	var options = '&p[title]=' + encodeURIComponent($('#title').text())
-					+ '&p[summary]=' + encodeURIComponent($('#subtitle').text())
-					+ '&p[url]=' + encodeURIComponent(document.location.href)
-					+ '&p[images][0]=' + encodeURIComponent($("meta[property='og:image']").attr("content"));
+	var options = encodeURIComponent(document.location.href);
 
 	window.open(
-		'http://www.facebook.com/sharer.php?s=100' + options,
+		'https://www.facebook.com/sharer/sharer.php?u=' + options,
 		'',
 		'toolbar=0,status=0,width=626,height=436'
 	);
@@ -2344,8 +2343,8 @@ function requestBitly()
 		bitlyUrl,
 		{
 			"format": "json",
-			login: "esristorymaps",
-			key: "R_14fc9f92e48f7c78c21db32bd01f7014",
+			"login": "esristorymaps",
+			"apiKey": "R_14fc9f92e48f7c78c21db32bd01f7014",
 			"longUrl": targetUrl
 		},
 		function(response)
