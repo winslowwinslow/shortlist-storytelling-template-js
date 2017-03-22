@@ -20,7 +20,7 @@ var TWO_COLUMN_THRESHOLD = 960;
 var FIELDNAME_NUMBER = ["Number"];
 var FIELDNAME_TITLE = ["Title"];
 var FIELDNAME_SHORTDESC = ["Short_desc"];
-var FIELDNAME_IMAGEURL = ["Image_URL"];
+var FIELDNAME_IMAGEURL = ["IMG_URL", "Image_URL"];
 var FIELDNAME_ADDRESS = ["Address"];
 var FIELDNAME_HOURS = ["Hours"];
 var FIELDNAME_WEBSITE = ["Website"];
@@ -586,7 +586,11 @@ function init() {
 					_map.removeLayer(_map.getLayer(result[1].features[0]._layer.id));
 				});
 			}
-			initMap(layers);
+			// initMap(layers);
+			// delay function to allow for slower loading layers
+			setTimeout(function() {
+    				initMap(layers);
+			}, 2000);
 		}
 
 		if(overRideError){
@@ -2395,7 +2399,6 @@ function prependURLHTTP(url)
 
 	return url;
 }
-
 
 // Custom Legend - ddd display/hide legend functionality to the legend button
 $('#customLegendBtn').click(function () {
