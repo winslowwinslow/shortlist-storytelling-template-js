@@ -91,6 +91,8 @@
 		<link rel="stylesheet" type="text/css" href="app/css/jquery.shortlist-legend.css">
         <!-- Data Update stylesheet -->
         <link rel="stylesheet" type="text/css" href="app/css/data-update.css" />
+        <!-- Loading Screen stylesheet -->
+        <link rel="stylesheet" type="text/css" href="app/css/loading-screen.css" />
 		<!--[if lt IE 9]>
 			<link rel="stylesheet" type="text/css" href="app/css/ie8-and-down.css" />
 		<![endif]-->
@@ -127,7 +129,13 @@
 		</div>
 		</div>
 
-		<div id="mobileTitlePage"></div>
+		<div id="mobileTitlePage">
+        <!-- Add loading screen to mobile -->
+            <div id="whiteOutMobile">
+                <h1>Map Loading...</h1>
+                <img class="loader-icon" alt="loading" src="resources/images/loader/loader.gif"/>
+            </div>
+        </div>
 
 		<div id="mainWindow">
 			<div id="divStrip">
@@ -230,6 +238,8 @@
 	 	</div>
 
 		<div id="whiteOut">
+            <!-- Add loading message to non-mobile -->
+            <h1>Map Loading...</h1>
 			<img id="loader" alt="loading" src="resources/images/loader/loader.gif"/>
 		</div>
 

@@ -918,6 +918,8 @@ function initMap(layers) {
 			$('#mobileThemeList').append(introList);
 
 		});
+        // hide loading screen on mobile
+        $('#whiteOutMobile').hide('slow');
 	}
 	else if(_contentLayers.length < 1) {
 		var errorMsg = "NO VALID SHORTLIST POINT LAYERS";
@@ -2375,6 +2377,9 @@ function resizeMobileElements(){
 
 function initError(errorTitle, errorMessage){
 	$('#loader').hide();
+    // hide loading screen on mobile
+    $('#whiteOutMobile').hide();
+    // hide loading screen on desktop
 	$("#fatalError .error-title").html(errorTitle);
 	$("#fatalError .error-msg").html(errorMessage);
 	$("#fatalError").show();
