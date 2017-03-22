@@ -18,17 +18,26 @@ var LEFT_PANE_WIDTH_THREE_COLUMN = 485;
 var TWO_COLUMN_THRESHOLD = 960;
 
 var FIELDNAME_NUMBER = ["Number"];
-var FIELDNAME_TITLE = ["Title"];
-var FIELDNAME_SHORTDESC = ["Short_desc"];
-var FIELDNAME_IMAGEURL = ["Image_URL"];
-var FIELDNAME_ADDRESS = ["Address"];
+// Common bridge name
+var FIELDNAME_TITLE = ["COMNAM"];
+// Municipality
+var FIELDNAME_SHORTDESC = ["CAPTMUN"];
+// Image URL
+var FIELDNAME_IMAGEURL = ["IMG_URL"];
+// Bridge type
+var FIELDNAME_ADDRESS = ["CAPTBRTYP"];
 var FIELDNAME_HOURS = ["Hours"];
 var FIELDNAME_WEBSITE = ["Website"];
-var FIELDNAME_DESC1 = ["Desc1"];
-var FIELDNAME_DESC2 = ["Desc2"];
-var FIELDNAME_DESC3 = ["Desc3"];
-var FIELDNAME_DESC4 = ["Desc4"];
-var FIELDNAME_DESC5 = ["Desc5"];
+// Sufficiency rating
+var FIELDNAME_DESC1 = ["CAPTSUFRT"];
+// Posted weight restriction
+var FIELDNAME_DESC2 = ["CAPTPOST"];
+// 2014 Average Daily Traffice
+var FIELDNAME_DESC3 = ["CAPTADT"];
+// Type of project
+var FIELDNAME_DESC4 = ["CAPTPRJ"];
+// Project cost estimate
+var FIELDNAME_DESC5 = ["CAPTCOST"];
 var FIELDNAME_ID = ["Shortlist_ID"];
 var FIELDNAME_TAB = ["Tab_Name"];
 
@@ -83,7 +92,6 @@ var _tileClick = true;
 
 // Custom Legend - Capture viewport width
 var viewportWidth = window.innerWidth;
-
 
 /******************************************************
 ************************* init ************************
@@ -524,11 +532,10 @@ function init() {
 			list.then(function(results){
 				if (_map.loaded ) {
 					organizeLayers(results);
-					
-					// Custom Legend - If screen width is above breakpoint, display legend button
-					if (viewportWidth > 767) {
-						$('#customLegendBtn').show();
-					}
+                    // Custom Legend - If screen width is above breakpoint, display legend button
+                    if (viewportWidth > 767) {
+                        $('#customLegendBtn').show();
+                    }                    
 				}
 			});
 
@@ -586,7 +593,11 @@ function init() {
 					_map.removeLayer(_map.getLayer(result[1].features[0]._layer.id));
 				});
 			}
-			initMap(layers);
+			//initMap(layers);
+            // ESRI proposed solution to resolve not all tabs loading issue
+			setTimeout(function(){
+				initMap(layers)
+			}, 1500);
 		}
 
 		if(overRideError){
@@ -2272,9 +2283,9 @@ function selectMobileTheme(index){
 		activateLayer(_contentLayers[index]);
 	$('#mobileTitlePage').css('display', 'none');
 	$('#map').css('height', '100%').css('height', '48%').css('height', '-=20px');
-	// Custom Legend - show Legend button on devices below breakpoint once map is visible
-	$('#customLegendBtn').show();
-	_map.resize();
+	// Show Legend button on devices below breakpoint once map is visible
+    $('#customLegendBtn').show()
+    _map.resize();
 }
 
 function getDeviceLocation(){
@@ -2391,8 +2402,7 @@ function prependURLHTTP(url)
 	return url;
 }
 
-
-// Custom Legend - ddd display/hide legend functionality to the legend button
+// Custom Legend - ddd display/hide functionality to Legend button
 $('#customLegendBtn').click(function () {
-    $('#customLegend').toggle();
+     $('#customLegend').toggle();
 });

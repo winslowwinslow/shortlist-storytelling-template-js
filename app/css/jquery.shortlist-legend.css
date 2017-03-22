@@ -1,5 +1,4 @@
 /* Rules for Legend */
-
 #customLegendBtn {
    display: none;
    position: absolute;
@@ -50,7 +49,6 @@
    font-weight: bold;
    font-size: 12px;
 }
-
 
 /* Media Query */
 @media (max-width: 767px) {

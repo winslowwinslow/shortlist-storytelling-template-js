@@ -1,5 +1,4 @@
 /*
-
 Credits: Patrick N McKinney
  
 This represents a way to add a toggable legend on the map
@@ -18,7 +17,7 @@ I have also added the code within the main.js and index.html file of this fork
 to show how this solution would look.
 
 I have added "Custom Legend" to the comments for each code block to make it easier to find
-// the legend related code in the main.js file.
+the legend related code in the main.js file.
 */
 
 // Step 1 - create a variable to hold the viewport width
@@ -29,7 +28,6 @@ I have added "Custom Legend" to the comments for each code block to make it easi
 
 // Custom Legend - Capture viewport width
 var viewportWidth = window.innerWidth;
-
 
     
 // Step 2 - Hook the function to display the legend button into the _map.loaded conditional test
@@ -54,7 +52,6 @@ if (viewportWidth > 767) {
 
 // Custom Legend - show Legend button on devices below breakpoint once map is visible
 $('#customLegendBtn').show();
-
 
 
 // Step 4 - Add toggle funtion to legend button
