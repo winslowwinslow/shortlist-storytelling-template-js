@@ -82,7 +82,7 @@ var _geomServiceUrl = null;
 var _tileClick = true;
 
 // Custom Legend - Capture viewport width
-var viewportWidth = window.innerWidth;
+var viewportWidth = $(window).width();
 
 
 /******************************************************
