@@ -1,69 +1,44 @@
-# shortlist-storytelling-template-js - Static Legend Plugin
+# Esri Shortlist Story Map Customizations
 
-This fork of the Shortlist" story map provides a method to add a static, toggable legend to the application.  The legend is considered static because the legend is created using a HTML unordered list, as opposed to creating the legend from the map/feature service.  jQuery is utilized to add the toggable functionality to the legend, as well as control when the legend displays below the mobile breakpoint.
+This fork of the [Esri Shortlist Story Map](https://github.com/Esri/shortlist-storytelling-template-js) provides the code to various customizations I have made in live deployments of the application.  I have broken the code out, although you could combine the various custom styles into a single custom stylesheet for the app.  I will cover each customization in a seperate section, detailing what changes are required.  
 
-The static legend involves the following changes to the application:
+Below are some links to the customizations in action:
 
-1.	Adding the <strong>jquery.shortlist-legend.css</strong> stylesheet, which controls the layout of the legend and legend button
-   
-      a.	Add this file to the <strong>"app/css/"</strong> directory
-   
-      b.	Add the stylesheet within the `<head>` element around <em>line 91</em> on the <strong>index.html</strong> file.
-   
-      c.	Adjust the stylesheet to suit the needs of your application
+* [Cumberland County Bridges Capital Improvement Program](https://gis.ccpa.net/storymaps/bridges/)
+* [CAEDC Interactive Data Map](http://map.cumberlandbusiness.com/)
+* [Demo map for this repo](https://pmacmaps.github.io/shortlist-storytelling-template-js/)
 
+*Note: These customizations work up to the 1.4.9 release of the Shortlist app*
 
-2.	Adding the `<div id="customLegendBtn">` element at the top of the `<div id="map">` around <em>line 156</em> of the <strong>index.html</strong> file.
-   
-      a.	 This is the legend button that users will click/press to toggle the legend on/off.
+## Toggable Legend
+
+_add content_
 
 
-3.	Add `<h3>Legend</h3>` within the `<div id="customLegendBtn">` element
+## Last Data Update Text
+
+_add content_
 
 
-4.	Immediately below the `<div id="customLegendBtn">` element, add the `<div id="customLegend">` element around <em>line 159</em> of the <strong>index.html</strong> file.
-   
-      a. This element will contain the legend contents
+## Mobile Loading Screen
 
+I always thought the app should have had a loading screen for mobile views.  Above the breakpoint, there is a loading icon.  I decided to add the text **Map Loading...**.  I added a `<h1>Map Loading...</h1>` element within the **#whiteOut** `<div>` around *line 240*.
 
-5.	Add legend elements within the `<div id="customLegend">` using `<ul><li>[Name of Layer]</li><li>[image representing layer]<img alt="" src="resources/images/legend/[name of image]" /></li></ul>` structure.
+To get the loading message below the breakpoint, I added the following within the **#mobileTitlePage** `<div>` around *line 132*:
 
+```hmtl
+<div id="whiteOutMobile">
+   <h1>Map Loading...</h1>
+   <img class="loader-icon" alt="loading" src="resources/images/loader/loader.gif"/>
+</div>
+```
 
-6.	Created a folder named <strong>"images"</strong> within the <strong>"resources/images/"</strong> directory.
-   
-      a.	The images for the legend should be stored here.
+The last step is applying some custom CSS styles.  The custom styles are found in the **loading-screen.css** file found in the **app\css\** directory.  If you don't add these styles to the app's native stylesheet or a custom stylesheet, then call **loading-screen.css** in the **index.html** file around *line 95*, below the native stylesheet calls:
 
+```html
+<link rel="stylesheet" type="text/css" href="app/css/loading-screen.css" />
+```
 
-7.	Make the following changes within the <strong>main.js</strong> file within the <strong>"app/js/"</strong> directory:
-   
-      a.	Around <em>line 86</em>, create a variable to hold the viewport width
-   
-         var viewportWidth = window.innerWidth;
-
-      b.	Around <em>line 528</em>, within the <strong>if(_map.loaded)</strong> conditional statement, add the following code:
-
-         
-         if (viewportWidth > 767) {
-   	      $('#customLegendBtn').show();
-   		}
-   		
-						
-         note: This will show the legend button on devices above the mobile breakpoint.
-         This element’s diplay is set to none by default.
-
-   c. Around <em>line 2275</em>, within the <strong>function selectMobileTheme(index)</strong>, add the following code:
-
-         $('#customLegendBtn').show()
-   
-      note: This will show the legend button below the mobile breakpoint once the map becomes visiable.  This occurs after the user selects a button for one of the tab layers
-
-   d.	At the end of the file, around <em>line 2398</em>, add the following code to add the toggable function to the legend button.  This will allow the legend to be turned on and off
-
-         $('#customLegendBtn').click(function () {
-	         $('#customLegend').toggle();
-         });
-         
-[View demo app with plugin here](http://pmacmaps.github.io/shortlist-storytelling-template-js/)
 
 ## Original ReadMe Contents
 
@@ -93,7 +68,7 @@ This repository contains the application files for the "Shortlist" story map app
 
 * [Story Maps web site](http://storymaps.arcgis.com/)
 * [Story Maps Blog](http://blogs.esri.com/esri/arcgis/category/story-maps/)
-* [ArcGIS.com] (http://www.arcgis.com/home)
+* [ArcGIS.com](http://www.arcgis.com/home)
 * [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/index.html)
 * [@EsriStoryMaps Twitter Feed](https://twitter.com/EsriStoryMaps)
 * [Story Maps Developers' Corner](https://developerscorner.storymaps.arcgis.com)
