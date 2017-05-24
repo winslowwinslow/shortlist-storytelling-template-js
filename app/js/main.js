@@ -2397,7 +2397,7 @@ function prependURLHTTP(url)
 }
 
 
-// Custom Legend - ddd display/hide legend functionality to the legend button
+// Custom Legend - add toggle legend functionality to the legend button
 $('#customLegendBtn').click(function () {
     $('#customLegend').toggle();
 });
