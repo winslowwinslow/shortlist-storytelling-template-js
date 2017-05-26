@@ -1,0 +1,33 @@
+/*********************************************************************
+* Name: Stylesheet for Last Data Update Text Placement for the ESRI Shortlist Story Map
+* Version: 1.0
+* Created by: Patrick McKinney, Cumberland County GIS 
+* Summary: Adds text (<span> element) for the date of last data update for the map.
+* Text is placed in the #header element above the 767px max-width breakpoint.
+* Below this breakpoint the text is added to the #mobileTitlePage element.
+* There is also a resize function to add the text to the #header element when switching
+* from below the breakpoint to above it.
+* Shortlist on GitHub: https://github.com/Esri/shortlist-storytelling-template-js* 
+**********************************************************************/
+
+#dataUpdate {
+    position: absolute;
+    left: 25px;
+    top: 90px;
+    font-size: 0.90em;
+}
+
+@media screen and (max-width: 767px) {
+    #dataUpdate {
+        left: 0;
+        margin-left: 15px;
+        top: 85px;
+        color: #fff;
+    }
+}
+
+@media screen and (max-width: 589px) {
+    #dataUpdate {
+        top: 112px;
+    }
+}
