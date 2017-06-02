@@ -65,6 +65,15 @@
 				pathJSAPI: '//js.arcgis.com/3.20/'
 			};
 		</script>
+        
+        <!-- Add custom stylesheets -->
+        <!-- Custom styles -->
+        <!-- Legend -->
+        <link rel="stylesheet" type="text/css" href="app/jquery.shortlist-legend.css" />
+        <!-- Last Data Update -->
+        <link rel="stylesheet" type="text/css" href="app/data-update.css" />
+        <!-- Loading Screen -->
+        <link rel="stylesheet" type="text/css" href="app/loading-screen.css" />
 
 	</head>
 	<body class="claro">
@@ -138,6 +147,22 @@
 			<div id="mainStagePanel">
 
 				<div id="map">
+                    <!-- Custom Legend -->
+                    <div id="customLegendBtn">
+                        <h3>Legend</h3>
+                    </div>
+                    <div id="customLegend">
+                        <ul>
+                            <li><!-- [Name of Layer]--></li>
+                            <li><img src="" alt="" /><!-- Graphic representing layer --></li>
+                        </ul>
+                        <ul>
+                            <li><!-- [Name of Layer]--></li>
+                            <li><img src="" alt="" /><!-- Graphic representing layer --></li>
+                        </ul>
+                        <!-- Use one unordered list per layer -->					
+                    </div>
+                    <!-- end Custom Legend -->
 					<div id="search"></div>
 					<div id="viewer-search"></div>
 					<!-- For some reason this can't be appended in its own template as part of its own component
