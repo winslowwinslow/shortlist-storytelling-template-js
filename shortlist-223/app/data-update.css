@@ -31,7 +31,7 @@
     }   
 }
 
-@media screen (max-width: 768px) {
+@media screen and (max-width: 768px) {
     #dataUpdate {
         left: 15px;       
         color: #fff;
