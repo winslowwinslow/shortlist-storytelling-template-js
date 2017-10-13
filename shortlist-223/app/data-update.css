@@ -17,21 +17,21 @@
     font-size: 0.90em;
 }
 
+/* update this breakpoint based upon length of title */
+@media screen and (max-width: 622px) {
+    #dataUpdate {
+        top: 115px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     #dataUpdate {
-        left: 15;
-        /*margin-left: 15px;*/
+        left: 15px;        
         top: 85px;
         color: #fff;
     }
     
     #mobileThemeList {
         margin-top: 50px;
-    }
-}
-
-@media screen and (max-width: 589px) {
-    #dataUpdate {
-        top: 112px;
     }
 }
