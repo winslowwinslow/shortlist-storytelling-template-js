@@ -17,6 +17,20 @@
     font-size: 0.90em;
 }
 
+/* Media Queries */
+/*
+You have to change the position of the text on smaller screens
+based upon how long the title is, and thus, how many lines it takes up.
+It can be a bit of a pain.
+*/
+
+/* update this breakpoint based upon length of title */
+@media screen and (max-width: 387px) {
+    #dataUpdate {
+        top: 150px;
+    }
+}
+
 /* update this breakpoint based upon length of title */
 @media screen and (max-width: 622px) {
     #dataUpdate {
@@ -25,7 +39,7 @@
 }
 
 /* update min-width based upon length of title */
-@media screen and (min-width:623px) and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     #dataUpdate {             
         top: 85px;        
     }   
