@@ -17,12 +17,16 @@
     font-size: 0.90em;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     #dataUpdate {
-        left: 0;
-        margin-left: 15px;
+        left: 15;
+        /*margin-left: 15px;*/
         top: 85px;
         color: #fff;
+    }
+    
+    #mobileThemeList {
+        margin-top: 50px;
     }
 }
 
