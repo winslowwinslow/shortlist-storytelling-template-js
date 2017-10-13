@@ -24,10 +24,16 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+/* update min-width based upon length of title */
+@media screen and (min-width:623px) and (max-width: 768px) {
+    #dataUpdate {             
+        top: 85px;        
+    }   
+}
+
+@media screen (max-width: 768px) {
     #dataUpdate {
-        left: 15px;        
-        top: 85px;
+        left: 15px;       
         color: #fff;
     }
     
