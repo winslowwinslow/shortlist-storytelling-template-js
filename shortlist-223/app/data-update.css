@@ -32,14 +32,14 @@ It can be a bit of a pain.
 }
 
 /* update this breakpoint based upon length of title */
-@media screen and (max-width: 622px) {
+@media screen and (min-width: 388px) and (max-width: 622px) {
     #dataUpdate {
         top: 115px;
     }
 }
 
 /* update min-width based upon length of title */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 623px) and (max-width: 768px) {
     #dataUpdate {             
         top: 85px;        
     }   
