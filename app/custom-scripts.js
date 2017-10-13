@@ -13,7 +13,7 @@ define(["dojo/topic"], function(topic) {
         // Element that will contain the last data update text
         var dataUpdateText = '<span id="dataUpdate">Data Last Updated: ' + lastDataUpdateDate + '</span>';
         // Mobile title page element
-        var ccpaMobileTitlePage = $('#mobileTitlePage');
+        var ccpaMobileTitlePage = $('#mobileIntro');
         // Header Element
         var ccpaHeader = $('#header');
         // Viewport Width
@@ -24,22 +24,22 @@ define(["dojo/topic"], function(topic) {
         // Append last data update text to appropriate element based upon viewport size
         $(document).ready(function() {
             // above breakpoint
-            if (viewportWidth >= 768 ) {
+            if (viewportWidth >= 769 ) {
                 ccpaHeader.append(dataUpdateText);
             } else {
-                ccpaMobileTitlePage.append(dataUpdateText); // below breakpoint    
+                ccpaMobileTitlePage.prepend(dataUpdateText); // below breakpoint    
             }
         });
 
         // place last data update text on header if screen size changes to above breakpoint    
         $(window).resize(function() {
-            if (viewportWidth >= 768) {
+            if (viewportWidth >= 769) {
                 ccpaHeader.append(dataUpdateText);
             }
         });        
         
         // Custom Legend - If screen width is above breakpoint, display legend button
-        if (viewportWidth > 767) {
+        if (viewportWidth > 768) {
             customLegendBtn.show();
         } else {
             $('#mobileThemeList .mobileTitleThemes').click(function() {

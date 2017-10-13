@@ -17,17 +17,41 @@
     font-size: 0.90em;
 }
 
-@media screen and (max-width: 767px) {
+/* Media Queries */
+/*
+You have to change the position of the text on smaller screens
+based upon how long the title is, and thus, how many lines it takes up.
+It can be a bit of a pain.
+*/
+
+/* update this breakpoint based upon length of title */
+@media screen and (max-width: 387px) {
     #dataUpdate {
-        left: 0;
-        margin-left: 15px;
-        top: 85px;
-        color: #fff;
+        top: 150px;
     }
 }
 
-@media screen and (max-width: 589px) {
+/* update this breakpoint based upon length of title */
+@media screen and (min-width: 388px) and (max-width: 622px) {
     #dataUpdate {
-        top: 112px;
+        top: 115px;
+    }
+}
+
+/* update min-width based upon length of title */
+@media screen and (min-width: 623px) and (max-width: 768px) {
+    #dataUpdate {             
+        top: 85px;        
+    }   
+}
+
+@media screen and (max-width: 768px) {
+    #dataUpdate {
+        left: 15px;       
+        color: #fff;
+    }
+    
+    #mobileThemeList {
+        margin-top: 50px;
     }
 }
