@@ -11,7 +11,7 @@ define(["dojo/topic"], function(topic) {
         // Last Data Update Text
         var lastDataUpdateDate = '4-19-2017' // update text to last data update date
         var dataUpdateText = '<span id="dataUpdate">Data Last Updated: ' + lastDataUpdateDate + '</span>';
-        var ccpaMobileHeader = $('mobileIntro');
+        var ccpaMobileHeader = $('#mobileIntro');
         var ccpaHeader = $('#header');
         var viewportWidth = $(window).width();
         // Custom Legend
