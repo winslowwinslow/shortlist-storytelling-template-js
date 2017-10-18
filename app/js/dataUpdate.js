@@ -13,7 +13,9 @@
 
 var lastDataUpdateDate = '3-22-2017' // update this variable with last data update date
 var dataUpdateText = '<span id="dataUpdate">Data Last Updated: ' + lastDataUpdateDate + '</span>';
+// title page for mobile (below breakpoint)
 var ccpaMobileTitlePage = $('#mobileTitlePage');
+// header for desktop (above breakpoint)
 var ccpaHeader = $('#header');
     
 $(document).ready(function() {

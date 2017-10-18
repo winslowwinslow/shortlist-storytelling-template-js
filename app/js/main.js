@@ -2270,8 +2270,10 @@ function loopFeatureSlides(direction){
 }
 
 function selectMobileTheme(index){
-	if(index != 0)
+	if(index != 0) {
 		activateLayer(_contentLayers[index]);
+    }
+    
 	$('#mobileTitlePage').css('display', 'none');
 	$('#map').css('height', '100%').css('height', '48%').css('height', '-=20px');
 	// Custom Legend - show Legend button on devices below breakpoint once map is visible

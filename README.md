@@ -6,39 +6,9 @@ Below are some links to the customizations in action:
 
 * [Cumberland County Bridges Capital Improvement Program](https://gis.ccpa.net/storymaps/bridges/)
 * [CAEDC Interactive Data Map](http://map.cumberlandbusiness.com/)
-* [Demo map for this repo](https://pmacmaps.github.io/shortlist-storytelling-template-js/)
+* [Demo map for this repo](http://pmacmaps.github.io/shortlist-storytelling-template-js/)
 
-*Note: These customizations work up to the 1.4.9 release of the Shortlist app*
-
-## Toggable Legend
-
-_add content_
-
-
-## Last Data Update Text
-
-_add content_
-
-
-## Mobile Loading Screen
-
-I always thought the app should have had a loading screen for mobile views.  Above the breakpoint, there is a loading icon.  I decided to add the text **Map Loading...**.  I added a `<h1>Map Loading...</h1>` element within the **#whiteOut** `<div>` around *line 240*.
-
-To get the loading message below the breakpoint, I added the following within the **#mobileTitlePage** `<div>` around *line 132*:
-
-```hmtl
-<div id="whiteOutMobile">
-   <h1>Map Loading...</h1>
-   <img class="loader-icon" alt="loading" src="resources/images/loader/loader.gif"/>
-</div>
-```
-
-The last step is applying some custom CSS styles.  The custom styles are found in the **loading-screen.css** file found in the **app\css\** directory.  If you don't add these styles to the app's native stylesheet or a custom stylesheet, then call **loading-screen.css** in the **index.html** file around *line 95*, below the native stylesheet calls:
-
-```html
-<link rel="stylesheet" type="text/css" href="app/css/loading-screen.css" />
-```
-
+**Note:** I have encountered instances where the 1.4.9 version of this app will load the tour points on desktop (above breakpoint), but not on mobile (below breakpoint). I have not yet encountered this issue with version 2.2.3.
 
 ## Original ReadMe Contents
 
